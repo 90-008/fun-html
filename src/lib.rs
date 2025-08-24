@@ -104,7 +104,7 @@ pub struct Document(Element);
 /// let element: Element = div([], []);
 ///
 /// assert_eq!(element.to_string(), "<div></div>");
-/// ```    
+/// ```
 #[derive(Debug, Clone, Default)]
 pub struct Element(ElementInner);
 
@@ -147,9 +147,18 @@ impl Default for ElementInner {
 ///   id("foo").to_string(),
 ///   r#"id="foo""#,
 /// )
-/// ```    
+/// ```
 #[derive(Debug, Clone, Default)]
 pub struct Attribute(AttributeInner);
+
+impl IntoIterator for Attribute {
+    type Item = Self;
+    type IntoIter = core::iter::Once<Self>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        core::iter::once(self)
+    }
+}
 
 #[derive(Debug, Clone)]
 enum AttributeInner {
