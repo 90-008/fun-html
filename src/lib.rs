@@ -67,6 +67,8 @@ pub mod conv;
 pub mod elt;
 
 mod interop {
+    #[cfg(feature = "axum")]
+    mod axum;
     #[cfg(feature = "maud_v026")]
     mod maud_v026;
     #[cfg(feature = "rocket_v05")]
