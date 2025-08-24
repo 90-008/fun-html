@@ -63,6 +63,7 @@
 //! * `maud_v026`: implements `Render` add provide conversion from/to `Markup` for [maud 0.26](https://docs.rs/maud/0.26)
 
 pub mod attr;
+pub mod conv;
 pub mod elt;
 
 mod interop {
